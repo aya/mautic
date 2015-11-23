@@ -1,0 +1,41 @@
+.container {
+    max-width:970px
+    margin:0 auto;
+    width:100%;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.mauticform-required .mauticform-label:after {
+    color: #e32;
+    content: " *";
+    display: inline;
+}
+.mauticform-errormsg {
+    display: block;
+    color: red;
+    margin-top: 2px;
+}
+.mauticform-selectbox, .mauticform-input, .mauticform-textarea {
+    width: 100% !important;
+}
+.mauticform_wrapper input:focus {
+    border: 1px solid transparent !important;
+}
+.column-half, .column-full {
+    float: left;
+    position: relative;
+    padding: 0.65rem;
+    width:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@media only screen and (min-width: 75em) { 
+    .column-half{
+        width: 50%;
+        height: 6em;
+    }
+}
