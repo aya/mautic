@@ -8,11 +8,6 @@
  */
 $view->extend(":$template:base.html.php");
 ?>
-<script type="text/javascript">
-var listener = function(event) { alert(event.data); };
-if (window.addEventListener) { addEventListener("message", listener, false) }
-else { attachEvent("onmessage", listener) }
-</script>
 <?php if (!empty($message)): ?>
     <div class="well text-center">
         <h2><?php echo $message; ?></h2>

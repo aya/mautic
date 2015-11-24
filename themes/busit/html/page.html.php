@@ -30,7 +30,7 @@ $view['slots']->set('pageTitle', $title);
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li style="padding-top: 18px;"><a class="" href="//www.busit.com/professional/">Professionels</a></li>
-                        <li style="padding-top: 18px;"><a class="" href="//www.busit.com/store/">Connecteurs</a></li>
+                        <li style="padding-top: 18px;"><a class="" href="//www.busit.com/store/">BusApps</a></li>
                         <li style="padding-top: 18px;"><a class="" href="//www.busit.com/offer/">Offres</a></li>
                         <li style="padding-top: 18px;"><a class="" href="//www.busit.com/demo/">Explorer</a></li>
                         <li style="padding-top: 18px;"><a class="menuseparation" href="//www.busit.com/private/panel/">&nbsp;&nbsp;Mon compte</a></li>
@@ -123,7 +123,7 @@ $view['slots']->set('pageTitle', $title);
 		<p style="margin: 10px 0 0 0; padding: 0; font-size: 0.7em;">
 			<a href="//www.busit.com/?_locale=en_US">English</a>&nbsp;&nbsp;&nbsp;
 			<a href="//www.busit.com/?_locale=fr_FR">Français</a>&nbsp;&nbsp;&nbsp;
-                        <a href="//www.busit.com/?_locale=es_ES">Espa&ntilde;ol</a>
+                        <!--a href="//www.busit.com/?_locale=es_ES">Espa&ntilde;ol</a-->
 		</p>
 		<p style="font-size: 0.8em; font-weight: bold;">&copy; 2015 <a href='//www.busit.com'>Busit</a></p>
 	</div>
