@@ -107,6 +107,19 @@ EOT
 
                     $message = unserialize(file_get_contents($tmpFilename));
 
+                    // Man can modify mails body directly in the swift files in queue
+                    if( $message === false ) {
+                        // We want to update $tmpContent with the strlen of the new body
+                        $tmpContent = preg_replace_callback(
+                            '!_body";s:(\d+):"(.*?)";s:!s',
+                            function ( $preg_match ) { return '_body";s:'.strlen($preg_match[2]).':"'.$preg_match[2].'";s:'; },
+                            file_get_contents($tmpFilename) );
+                        $message = unserialize( $tmpContent );
+                        if( $message === false )
+                            $output->writeln(__FILE__.':'.__LINE__.' unserialize(file_get_contents('.$tmpFilename.')) failed !');
+                    }
+
+
                     $tryAgain = false;
                     if ($dispatcher->hasListeners(EmailEvents::EMAIL_RESEND)) {
                         $event = new QueueEmailEvent($message);
