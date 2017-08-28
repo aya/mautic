@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  mautic:
+    image: mautic/mautic
+    external_links: 
+       - meup-mysql:mysql
+    environment:   
+      MAUTIC_DB_HOST: mysql
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: mautic
+      MAUTIC_DB_NAME: mautic 
+    labels:                                                                                                                                                  
+        - SERVICE_80_NAME=mautic                                                                                                                                            
+        - SERVICE_80_CHECK_HTTP=/                                                                                                                                           
+        - SERVICE_80_CHECK_INTERVAL=15s
+        - SERVICE_80_CHECK_TIMEOUT=3s                                                                                                                                       
+        - SERVICE_80_TAGS=urlprefix-mautic.local.1001pharmacies.com/   
+    ports:
+      - 80
+    volumes:
+      - .:/var/www/html
+networks:
+   default:
+       external:
+           name: meup
