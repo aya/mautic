@@ -193,14 +193,8 @@ create-db:
 	docker exec meup-mysql bash -c "mysql -u mautic -mautic mautic -e 'use mautic' >/dev/null 2>&1 || mysql -u root -proot mysql -e \"grant all privileges on mautic.* to 'mautic'@'%' identified by 'mautic'; flush privileges;\""
 	docker-compose exec mautic sh -c "php app/console doctrine:schema:create"
 	docker-compose exec mautic sh -c "php app/console doctrine:schema:update --dump-sql"
-#	docker-compose exec mautic sh -c "php app/console doctrine:migrations:migrate"
-#	docker-compose exec mautic sh -c "php app/console mautic:campaigns:rebuild"
-#	docker-compose exec mautic sh -c "php app/console mautic:campaigns:trigger"
-#	docker-compose exec mautic sh -c "php app/console mautic:segments:update"
 	docker-compose exec mautic sh -c "php app/console doctrine:schema:update --force"
-#	docker exec meup-mysql bash -c "mysql -u root -proot mautic -e 'INSERT INTO roles VALUES(1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, \"Administrator\", \"Full system access\", 1, \"N;\");'"
 	docker-compose exec mautic sh -c "php app/console doctrine:fixtures:load"
-#	docker exec meup-mysql bash -c "mysql -u root -proot mautic -e 'INSERT INTO users VALUES(3, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, \"admin\", \"\$$2y\$$13\$$iOTJ6LnA5p1VOjFCZN0i6eEBApFGEaoTkPmd1.76Qf.tv9ckUun8K\", \"admin\", \"1001pharmacies\", \"contact@1001pharmacies.com\", NULL, NULL, NULL, NULL, NULL, \"offline\", NULL, NULL);'"
 
 ## Fix variable folders
 
