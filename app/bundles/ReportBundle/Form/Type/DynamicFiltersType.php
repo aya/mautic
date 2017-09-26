@@ -27,11 +27,10 @@ class DynamicFiltersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         foreach ($options['report']->getFilters() as $filter) {
-            if (isset($filter['dynamic'])) {
+            if (isset($filter['dynamic']) && $filter['dynamic'] === 1) {
                 $column     = $filter['column'];
                 $definition = $options['filterDefinitions']->definitions[$column];
-
-                $args = [
+                $args       = [
                     'label'      => $definition['label'],
                     'label_attr' => ['class' => 'control-label'],
                     'attr'       => [
@@ -58,8 +57,19 @@ class DynamicFiltersType extends AbstractType
                             $args['data'] = ((int) $options['data'][$definition['alias']] == 1);
                         }
                         break;
+                    case 'date':
+                        $type           = 'date';
+                        $args['input']  = 'string';
+                        $args['widget'] = 'single_text';
+                        $args['format'] = 'y-MM-dd';
+                        $args['attr']['class'] .= ' datepicker';
+                        break;
                     case 'datetime':
-                        $type = 'datetime';
+                        $type           = 'datetime';
+                        $args['input']  = 'string';
+                        $args['widget'] = 'single_text';
+                        $args['format'] = 'y-MM-dd HH:mm:ss';
+                        $args['attr']['class'] .= ' datetimepicker';
                         break;
                     case 'multiselect':
                     case 'select':

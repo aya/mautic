@@ -9,7 +9,7 @@
  * @license     GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-namespace Mautic\LeadBundle\Tests;
+namespace Mautic\LeadBundle\Tests\Entity;
 
 use Mautic\CoreBundle\Form\RequestTrait;
 use Mautic\LeadBundle\Entity\DoNotContact;
@@ -176,7 +176,7 @@ class LeadTest extends \PHPUnit_Framework_TestCase
 
         $testDateObject = new \DateTime('12-12-2017 22:03:59');
 
-        $this->assertEquals($testDateObject->format('Y-m-d H:i'), $data['dateField']);
+        $this->assertEquals($testDateObject->format('Y-m-d H:i:s'), $data['dateField']);
         $this->assertEquals((int) true, $data['boolean']);
         $this->assertEquals(['a', 'b'], $data['multi']);
     }
